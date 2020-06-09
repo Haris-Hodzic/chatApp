@@ -1,0 +1,79 @@
+<div class="homeBody">
+  <app-header [title]="this.toUser"></app-header>
+  <div class="middlePart">
+    <ul>
+      <li *ngFor="let message of messages">
+        <div *ngIf="message.fromUser == this.fromUser && message.toUser == this.toUser" class="fromUserStyle">
+          <p>{{message.message}}</p>
+          <p class="timeStamp">{{message.time}}</p>
+        </div>
+        <div *ngIf="message.fromUser == this.toUser && message.toUser == this.fromUser" class="chatBox">
+          <div class="profilePicture"></div>
+          <div class="toUserStyle">
+            <p>{{message.message}}</p>
+            <p class="timeStamp">{{message.time}}</p>
+          </div>
+        </div>
+        <div *ngIf="message.toUser == 'Global' && message.fromUser !== this.fromUser" class="chatBox">
+          <div class="profilePicture"></div>
+          <p class="toUserGlobal">{{message.fromUser}}</p>
+          <div class="toUserStyle">
+            <p>{{message.message}}</p>
+            <p class="timeStamp">{{message.time}}</p>
+          </div>
+        </div>
+      </li>
+      <li *ngFor="let message of newMessages">
+        <div *ngIf="message.fromUser == this.fromUser && message.toUser == this.toUser" class="fromUserStyle">
+          <p>{{message.message}}</p>
+          <p class="timeStamp" *ngIf="this.currentTime > message.time; else now">{{message.time.getHours()}}:{{message.time.getMinutes() - 1}}</p>
+          <ng-template #now><p class="timeStamp">now</p></ng-template>
+        </div>
+        <div *ngIf="message.fromUser == this.toUser && message.toUser == this.fromUser" class="chatBox">
+          <div class="profilePicture"></div>
+          <div class="toUserStyle">
+            <p>{{message.message}}</p>
+            <p class="timeStamp" *ngIf="this.currentTime > message.time; else now">{{message.time.getHours()}}:{{message.time.getMinutes() - 1}}</p>
+            <ng-template #now><p class="timeStamp">now</p></ng-template>
+          </div>
+        </div>
+        <div *ngIf="message.toUser == 'Global' && message.fromUser !== this.fromUser && this.toUser == 'Global'" class="chatBox">
+          <div class="profilePicture"></div>
+          <p class="toUserGlobal">{{message.fromUser}}</p>
+          <div class="toUserStyle">
+            <p>{{message.message}}</p>
+            <p class="timeStamp" *ngIf="this.currentTime > message.time; else now">{{message.time.getHours()}}:{{message.time.getMinutes() - 1}}</p>
+            <ng-template #now><p class="timeStamp">now</p></ng-template>
+          </div>
+        </div>
+      </li>
+      <div *ngIf="this.typing === true && this.userTyping !== this.fromUser && this.typingToUser !== 'Global' && this.toUser !== 'Global'" class="typingBox">
+        <div class="profilePicture"></div>
+        <li class="ticontainer">
+          <div class="tiblock">
+            <div class="tidot"></div>
+            <div class="tidot"></div>
+            <div class="tidot"></div>
+          </div>
+        </li>
+      </div>
+      <div *ngIf="this.typingToUser === 'Global' && this.typing === true && this.toUser === 'Global' && this.fromUser !== this.userTyping" class="typingBox">
+        <div class="profilePicture"></div>
+        <p class="toUserGlobal">{{this.userTyping}}</p>
+        <li class="ticontainer">
+          <div class="tiblock">
+            <div class="tidot"></div>
+            <div class="tidot"></div>
+            <div class="tidot"></div>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <form [formGroup]="form" (submit)="sendMessage()">
+    <input class="messageInput" type="text" formControlName="message" name="message" (keypress)="onChange($event)" autocomplete="off" placeholder="Type your message">
+  </form>
+  <app-footer></app-footer>
+</div>
+
+

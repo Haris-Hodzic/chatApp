@@ -1,0 +1,183 @@
+.messageInput{
+  position: absolute;
+  top: 704px;
+  left: 14px;
+  width: 337px;
+  height: 36px;
+  background: #2B2B2B 0% 0% no-repeat padding-box;
+  border: none;
+  border-radius: 50px;
+  opacity: 1;
+  text-align: left;
+  font-family: Regular SF Pro Text;
+  padding-left: 45px;
+  padding-top: 20px;
+  font-size: 15px;
+  overflow: hidden;
+  resize: none;
+  letter-spacing: 0px;
+  color: #CCCCCC;
+  opacity: 1;
+}
+::placeholder{
+  position: relative;
+  text-align: left;
+  font-family: Regular SF Pro Text;
+  font-size: 15px;
+  letter-spacing: 0px;
+  color: #CCCCCC;
+  opacity: 1;
+}
+.fromUserStyle{
+  position: relative;
+  width: 275px;
+  min-height: 65px;
+  margin-bottom: 31px;
+  left: 123px;
+  background: transparent linear-gradient(257deg, #007EF4 0%, #2A75BC 100%) 0% 0% no-repeat padding-box;
+  border: 1px solid #00000000;
+  border-radius: 20px 20px 0px 20px;
+  opacity: 1;
+}
+.toUserStyle{
+  position: relative;
+  left: 75px;
+  width: 323px;
+  height: 97px;
+  background: transparent linear-gradient(253deg, #2B2B2B 0%, #454545 100%) 0% 0% no-repeat padding-box;
+  border-radius: 20px 20px 20px 0px;
+  opacity: 1;
+}
+ p{
+   position: relative;
+   left: 16px;
+   top: 18px;
+   text-align: left;
+   font-family: Regular SF Pro Text;
+   font-size: 15px;
+   letter-spacing: 0px;
+   color: #FFFFFF;
+   opacity: 1;
+}
+ .profilePicture{
+   position: absolute;
+   bottom: 0px;
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   margin-left: 16px;
+   border-radius: 60px;
+   background-image: url("src/assets/img/profile2.png");
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-position: center;
+   object-fit: cover;
+ }
+.chatBox{
+  position: relative;
+  display: inline-block;
+  width: 414px;
+  min-height: 65px;
+  margin-bottom: 31px;
+}
+.middlePart{
+  display:flex;
+  flex-direction: column-reverse;
+}
+.timeStamp{
+  font-family: Regular SF Pro Text;
+  font-size: 13px;
+  letter-spacing: 0px;
+  opacity: 1;
+  text-align: left;
+}
+.fromUserStyle .timeStamp{
+  position: relative;
+  left: 224px;
+  color: #FFFFFF;
+}
+.toUserStyle .timeStamp{
+  color: #CCCCCC;
+  position: absolute;
+  left: 16px;
+  top: 68px;
+}
+.typing{
+  top: 520px;
+  left: 74px;
+  width: 72px;
+  height: 50px;
+  background: transparent linear-gradient(235deg, #2B2B2B 0%, #454545 100%) 0% 0% no-repeat padding-box;
+  border-radius: 0px 20px 20px 20px;
+  opacity: 1;
+}
+.tiblock {
+  position: relative;
+  top: 17px;
+  left: 16px;
+  align-items: center;
+  display: flex;
+  height: 17px;
+}
+.typingBox{
+  position: relative;
+  display: flex;
+}
+.toUserGlobal{
+  position: absolute;
+  top: -20px;
+  left: 84px;
+  font-family: Regular SF Pro Text;
+  font-size: 13px;
+  letter-spacing: 0px;
+  color: #CCCCCC;
+
+}
+.ticontainer{
+  position: relative;
+  list-style: none;
+  left: 74px;
+  width: 72px;
+  height: 50px;
+  background: transparent linear-gradient(235deg, #2B2B2B 0%, #454545 100%) 0% 0% no-repeat padding-box;
+  border-radius: 0px 20px 20px 20px;
+  opacity: 1;
+}
+
+.ticontainer .tidot {
+  background-color: #FFFFFF;
+}
+
+.tidot {
+  -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+  border-radius: 6px;
+  display: inline-block;
+  height: 7px;
+  margin-right: 4px;
+  width: 7px;
+}
+
+@-webkit-keyframes mercuryTypingAnimation{
+  0%{
+    -webkit-transform:translateY(0px)
+  }
+  28%{
+    -webkit-transform:translateY(-5px)
+  }
+  44%{
+    -webkit-transform:translateY(0px)
+  }
+}
+
+.tidot:nth-child(1){
+  -webkit-animation-delay:200ms;
+  opacity: 1;
+}
+.tidot:nth-child(2){
+  -webkit-animation-delay:300ms;
+  opacity: 0.5;
+}
+.tidot:nth-child(3){
+  -webkit-animation-delay:400ms;
+  opacity: 0.3;
+}

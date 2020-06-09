@@ -1,0 +1,8 @@
+<div class="homeBody">
+  <app-header [title]="username"></app-header>
+  <div class="middlePart">
+    <app-chat-item [page]="'messages'" [username]="'Global'" [routerLink]="['/chat', 'Global']"></app-chat-item>
+    <app-chat-item *ngFor="let user of this.listOfActiveUsers" [username]="user" [page]="'messages'" [routerLink]="['/chat', user]"></app-chat-item>
+  </div>
+  <app-footer></app-footer>
+</div>

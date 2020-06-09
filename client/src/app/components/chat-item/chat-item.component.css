@@ -1,0 +1,81 @@
+.chatItemDiv{
+  position: relative;
+  margin-bottom: 48px;
+  width: 382px;
+  height: 50px;
+}
+
+.rightChatItem{
+  margin-left: 22px;
+  position: absolute;
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  cursor: pointer;
+}
+.userName{
+  position: relative;
+  margin-top: 7px;
+  height: 16px;
+  width: 100%;
+  font: Medium  SF Pro Text;
+  font-size: 16px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+.lastMessage{
+  position: relative;
+  top: 31px;
+  height: 15px;
+  width: 100%;
+  text-align: left;
+  font-family: Regular SF Pro Text;
+  font-size: 15px;
+  letter-spacing: 0px;
+  color: #CCCCCC;
+  opacity: 1;
+}
+.messageBox{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+}
+.messageTime{
+  position: absolute;
+  left: 272px;
+  top: 6px;
+  text-align: right;
+  font-family: Regular SF Pro Text;
+  font-size: 15px;
+  letter-spacing: 0px;
+  color: #CCCCCC;
+  opacity: 1;
+}
+.profilePicture{
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-left: 16px;
+  border-radius: 60px;
+  background-image: url("src/assets/img/profile2.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  object-fit: cover;
+  opacity: 1;
+  cursor: pointer;
+}
+.newMessage{
+  position: absolute;
+  top: 33px;
+  left: 280px;
+  width: 14px;
+  height: 14px;
+  background: #007EF4 0% 0% no-repeat padding-box;
+  border: 2px solid #1F1F1F;
+  border-radius: 10px;
+  opacity: 1;
+}

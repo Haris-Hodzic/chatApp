@@ -1,0 +1,16 @@
+<div class="chatItemDiv" *ngIf="page === 'activeUsers' || this.lastMessage != undefined || listOfUserslastMessages[username] != undefined || username == 'Global'">
+  <div class="profilePicture"></div>
+  <div class="rightChatItem">
+    <h6 class="userName">{{username}}</h6>
+    <div class="messageBox" *ngIf="page === 'messages' && this.listOfUserslastMessages[username] == undefined">
+      <p class="lastMessage">{{this.lastMessage?.message}}</p>
+      <p class="messageTime">{{this.lastMessage?.time}}</p>
+    </div>
+    <div class="messageBox" *ngIf="page === 'messages' && this.listOfUserslastMessages[username] != undefined">
+      <p class="lastMessage">{{listOfUserslastMessages[username]?.message}}</p>
+      <p class="messageTime" *ngIf="this.currentTime > listOfUserslastMessages[username].time; else now">{{listOfUserslastMessages[username].time.getHours()}}:{{listOfUserslastMessages[username].time.getMinutes() - 1}}</p>
+      <ng-template #now><p class="messageTime">now</p></ng-template>
+      <div *ngIf="listOfUserslastMessages[username]?.message !== lastMessage" class="newMessage"></div>
+    </div>
+  </div>
+</div>

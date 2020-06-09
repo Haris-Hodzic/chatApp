@@ -1,0 +1,20 @@
+.header{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 414px;
+  height: 120px;
+  background: #1F1F1F 0% 0% no-repeat padding-box;
+  border-radius: 0px 0px 30px 30px;
+  opacity: 1;
+}
+.header h1{
+  position: relative;
+  text-align: center;
+  top: 67px;
+  font: Medium SF Pro Text;
+  font-size: 16px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+}
