@@ -1,4 +1,4 @@
-import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SocketService} from './services/socket.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     if (!sessionStorage.getItem('username')) {
-      this.socketService.createUser('/user/connect').subscribe(res => {
+      this.socketService.createUser('user/connect').subscribe(res => {
         sessionStorage.setItem('username', res);
         this.socketService.initializeWebSocketConnection('');
         this.socketService.getActiveUsers(res);

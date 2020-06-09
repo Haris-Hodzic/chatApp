@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {ToastrService} from 'ngx-toastr';
 import * as Stomp from 'stompjs';
@@ -9,6 +9,7 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class SocketService {
+  private serverUrl = environment.url;
   isLoaded = false;
   isCustomSocketOpened = false;
   private stompClient;
@@ -26,19 +27,19 @@ export class SocketService {
     this.listOfLastUsersMessages[username] = undefined;
   }
   getUserMessages(fromUser: string, toUser: string) {
-    return this.http.get('/api/user/messages?fromUser=' + fromUser + '&toUser=' + toUser)
+    return this.http.get(this.serverUrl + 'api/user/messages?fromUser=' + fromUser + '&toUser=' + toUser)
       .pipe(
         catchError(this.handleError)
       );
   }
   createUser(path: string) {
-    return this.http.post(path, '', {responseType: 'text'})
+    return this.http.post(this.serverUrl + path, '', {responseType: 'text'})
       .pipe(
         catchError(this.handleError)
       );
   }
   initializeWebSocketConnection(username: string) {
-    const ws = new SockJS('/ws');
+    const ws = new SockJS(this.serverUrl + 'ws');
     this.stompClient = Stomp.over(ws);
     const that = this;
     if (!this.isLoaded) {
@@ -51,7 +52,7 @@ export class SocketService {
     }
   }
   getActiveUsers(username: string){
-    return this.http.get('/user/active?userName=' + username)
+    return this.http.get(this.serverUrl + 'user/active?userName=' + username)
       .pipe(
         catchError(this.handleError)
       ).subscribe(res => {
