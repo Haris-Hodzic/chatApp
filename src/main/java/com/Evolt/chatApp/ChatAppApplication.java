@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-public class ChatAppApplication {
+public class 	ChatAppApplication {
 
 	@Value("${CLIENT_URL}")
 	private String url;
